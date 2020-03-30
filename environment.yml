@@ -14,10 +14,10 @@
 
 name: pddm-env
 channels:
-- pytorch
 - defaults
 - conda-forge
 dependencies:
+- pip==18.0
 - python=3.5
 - mkl-service=1.1.2
 - tabulate=0.7.5
@@ -28,7 +28,6 @@ dependencies:
   - ipdb==0.11
   - matplotlib==2.1.2
   - mujoco-py==1.50.1.*
-  - pip==18.0
   - pyyaml==3.12
   - tqdm==4.25.0
   - wheel==0.30.0

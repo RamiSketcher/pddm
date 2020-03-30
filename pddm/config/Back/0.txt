@@ -18,7 +18,7 @@
 ##### run options
 #########################
 
-'job_name': ['cube'],
+'job_name': ['cheetah'],
 'seed': [0],
 
 #########################
@@ -26,14 +26,14 @@
 #########################
 
 ## env
-'env_name': ['pddm_cube-v0'],
-'rollout_length': [70],
-'num_iters': [73],
-'num_trajectories_per_iter': [40],
+'env_name': ['pddm_cheetah-v0'],
+'rollout_length': [100], # The number of max time steps per rollout
+'num_iters': [10], # The number of iterations for (f(x,u) & MPC)
+'num_trajectories_per_iter': [30], # The number of MPC trajectories rollouts
 
 ## continue
-'continue_run': [126],
-'continue_run_filepath': ['../output/cube'],
+'continue_run': [-1], # The number of last rollout, or -1 if new run
+'continue_run_filepath': [''], # Saved rollouts dir path
 
 ## some T/F options
 'use_ground_truth_dynamics': [False],
@@ -52,16 +52,16 @@
 
 ## collect random rollouts
 'load_existing_random_data': [False],
-'num_rand_rollouts_train': [100],
+'num_rand_rollouts_train': [200],
 'num_rand_rollouts_val': [50],
-'rand_rollout_length': [30],
+'rand_rollout_length': [100],
 'use_threading': [True],
 
 ## sample random velocities vs. positions
-'rand_policy_sample_velocities': [True],
-'rand_policy_vel_min': [0.05],
-'rand_policy_vel_max': [0.15],
-'rand_policy_hold_action': [2],
+'rand_policy_sample_velocities': [False],
+'rand_policy_vel_min': [0],
+'rand_policy_vel_max': [0],
+'rand_policy_hold_action': [1],
 
 ##########################
 ##### dynamics model
@@ -82,21 +82,21 @@
 'nEpoch_init': [40],
 
 ##########################
-##### controller
+##### controller (policy)
 ##########################
 
-## MPC
-'horizon': [7],
-'num_control_samples': [1000],
+## MPC (Model Predictive Controller)
+'horizon': [20],
+'num_control_samples': [700],
 'controller_type': ['mppi'],
 
-## cem
+## cem (Cross Entropy Method)
 'cem_max_iters': [3],
-'cem_num_elites': [20],
+'cem_num_elites': [5],
 
 ## mppi
-'mppi_kappa': [10],
+'mppi_kappa': [1],
 'mppi_mag_noise': [0.9],
-'mppi_beta': [0.6],
+'mppi_beta': [0.9],
 
 }

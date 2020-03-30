@@ -1,3 +1,5 @@
+# (Rami): Modefied
+
 # Copyright 2019 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,27 +14,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+# Imports
+## General imports:
 import os
 os.environ["MKL_THREADING_LAYER"] = "GNU"
-import numpy as np
-import numpy.random as npr
-import tensorflow as tf
 import pickle
 import sys
 import argparse
 import traceback
 
-#my imports
-from pddm.policies.policy_random import Policy_Random
-from pddm.utils.helper_funcs import *
+import numpy as np
+import numpy.random as npr
+import tensorflow as tf
+
+## PDDM imports:
 from pddm.regressors.dynamics_model import Dyn_Model
+
+from pddm.policies.policy_random import Policy_Random
 from pddm.policies.mpc_rollout import MPCRollout
+
+from pddm.utils import config_reader
+from pddm.utils.helper_funcs import *
 from pddm.utils.loader import Loader
 from pddm.utils.saver import Saver
 from pddm.utils.data_processor import DataProcessor
 from pddm.utils.data_structures import *
 from pddm.utils.convert_to_parser_args import convert_to_parser_args
-from pddm.utils import config_reader
+
 
 SCRIPT_DIR = os.path.dirname(__file__)
 
@@ -43,6 +52,7 @@ def run_job(args, save_dir=None):
         save_dir = os.path.join(SCRIPT_DIR, args.continue_run_filepath)
 
     tf.reset_default_graph()
+
     with tf.Session(config=get_gpu_config(args.use_gpu, args.gpu_frac)) as sess:
 
         ##############################################
@@ -131,7 +141,7 @@ def run_job(args, save_dir=None):
             dataset_valRand = data_processor.convertRolloutsToDatasets(
                 rollouts_valRand)
 
-            #onPol train/val data
+            #OnPol train/val data
             dataset_trainOnPol = Dataset()
             rollouts_trainOnPol = []
             rollouts_valOnPol = []
@@ -478,7 +488,7 @@ def main():
     parser.add_argument(
         '-o',
         '--output_dir',
-        default='output',
+        default='../output',
         help=
         ('Directory to output trained policies, logs, and plots. A subdirectory '
          'is created for each job. This is speficified relative to  '

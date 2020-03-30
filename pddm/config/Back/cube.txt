@@ -28,12 +28,12 @@
 ## env
 'env_name': ['pddm_cube-v0'],
 'rollout_length': [70],
-'num_iters': [73],
+'num_iters': [200],
 'num_trajectories_per_iter': [40],
 
 ## continue
-'continue_run': [126],
-'continue_run_filepath': ['../output/cube'],
+'continue_run': [0],
+'continue_run_filepath': [''],
 
 ## some T/F options
 'use_ground_truth_dynamics': [False],

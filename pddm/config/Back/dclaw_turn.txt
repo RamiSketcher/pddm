@@ -18,7 +18,7 @@
 ##### run options
 #########################
 
-'job_name': ['cube'],
+'job_name': ['dclaw_turn'],
 'seed': [0],
 
 #########################
@@ -26,14 +26,14 @@
 #########################
 
 ## env
-'env_name': ['pddm_cube-v0'],
-'rollout_length': [70],
-'num_iters': [73],
-'num_trajectories_per_iter': [40],
+'env_name': ['pddm_dclaw_turn-v0'],
+'rollout_length': [40],
+'num_iters': [150],
+'num_trajectories_per_iter': [20],
 
 ## continue
-'continue_run': [126],
-'continue_run_filepath': ['../output/cube'],
+'continue_run': [-1],
+'continue_run_filepath': [''],
 
 ## some T/F options
 'use_ground_truth_dynamics': [False],
@@ -52,16 +52,16 @@
 
 ## collect random rollouts
 'load_existing_random_data': [False],
-'num_rand_rollouts_train': [100],
-'num_rand_rollouts_val': [50],
-'rand_rollout_length': [30],
+'num_rand_rollouts_train': [50],
+'num_rand_rollouts_val': [10],
+'rand_rollout_length': [40],
 'use_threading': [True],
 
 ## sample random velocities vs. positions
 'rand_policy_sample_velocities': [True],
-'rand_policy_vel_min': [0.05],
-'rand_policy_vel_max': [0.15],
-'rand_policy_hold_action': [2],
+'rand_policy_vel_min': [0.4],
+'rand_policy_vel_max': [0.5],
+'rand_policy_hold_action': [3],
 
 ##########################
 ##### dynamics model
@@ -87,7 +87,7 @@
 
 ## MPC
 'horizon': [7],
-'num_control_samples': [1000],
+'num_control_samples': [700],
 'controller_type': ['mppi'],
 
 ## cem
@@ -95,8 +95,8 @@
 'cem_num_elites': [20],
 
 ## mppi
-'mppi_kappa': [10],
+'mppi_kappa': [0.5],
 'mppi_mag_noise': [0.9],
-'mppi_beta': [0.6],
+'mppi_beta': [0.7],
 
 }

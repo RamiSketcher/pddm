@@ -18,25 +18,25 @@
 ##### run options
 #########################
 
-'job_name': ['cube'],
-'seed': [0],
+'job_name': ['baoding_gt'],
+'seed': [70],
 
 #########################
 ##### experiment options
 #########################
 
 ## env
-'env_name': ['pddm_cube-v0'],
-'rollout_length': [70],
-'num_iters': [73],
-'num_trajectories_per_iter': [40],
+'env_name': ['pddm_baoding-v0'],
+'rollout_length': [60],
+'num_iters': [1],
+'num_trajectories_per_iter': [1],
 
 ## continue
-'continue_run': [126],
-'continue_run_filepath': ['../output/cube'],
+'continue_run': [-1],
+'continue_run_filepath': [''],
 
 ## some T/F options
-'use_ground_truth_dynamics': [False],
+'use_ground_truth_dynamics': [True],
 'visualize_MPC_rollout': [False],
 'print_minimal': [False],
 
@@ -52,7 +52,7 @@
 
 ## collect random rollouts
 'load_existing_random_data': [False],
-'num_rand_rollouts_train': [100],
+'num_rand_rollouts_train': [50],
 'num_rand_rollouts_val': [50],
 'rand_rollout_length': [30],
 'use_threading': [True],
@@ -78,8 +78,8 @@
 'always_use_savedModel': [False],
 'batchsize': [512],
 'lr': [0.001],
-'nEpoch': [40],
-'nEpoch_init': [40],
+'nEpoch': [2],
+'nEpoch_init': [2],
 
 ##########################
 ##### controller
@@ -87,7 +87,7 @@
 
 ## MPC
 'horizon': [7],
-'num_control_samples': [1000],
+'num_control_samples': [300],
 'controller_type': ['mppi'],
 
 ## cem
@@ -95,7 +95,7 @@
 'cem_num_elites': [20],
 
 ## mppi
-'mppi_kappa': [10],
+'mppi_kappa': [20],
 'mppi_mag_noise': [0.9],
 'mppi_beta': [0.6],
 

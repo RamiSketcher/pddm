@@ -27,9 +27,9 @@
 
 ## env
 'env_name': ['pddm_cheetah-v0'],
-'rollout_length': [100],
-'num_iters': [50],
-'num_trajectories_per_iter': [30],
+'rollout_length': [50],
+'num_iters': [10],
+'num_trajectories_per_iter': [15],
 
 ## continue
 'continue_run': [-1],

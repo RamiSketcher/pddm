@@ -16,8 +16,13 @@
 import tensorflow as tf
 
 
-def feedforward_network(inputStates, inputSize, outputSize, num_fc_layers,
-                        depth_fc_layers, tf_datatype, scope):
+def feedforward_network(inputStates,
+                        inputSize, # (st,at) = (ds, da)
+                        outputSize, # (st+1) = (ds)
+                        num_fc_layers,
+                        depth_fc_layers,
+                        tf_datatype,
+                        scope):
 
     with tf.variable_scope(str(scope)):
 

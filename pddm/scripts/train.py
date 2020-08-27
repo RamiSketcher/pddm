@@ -496,6 +496,7 @@ def main():
 
     parser.add_argument('--use_gpu', action="store_true")
     parser.add_argument('-frac', '--gpu_frac', type=float, default=0.9)
+    
     general_args = parser.parse_args()
 
     #####################
